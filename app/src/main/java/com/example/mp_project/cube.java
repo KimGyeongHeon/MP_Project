@@ -95,7 +95,7 @@ public class cube extends AppCompatActivity implements OnMapReadyCallback, Activ
 
         setContentView(R.layout.activity_cube);
 
-        mLayout = findViewById(R.id.layout_cube);
+        mLayout = (View)findViewById(R.id.layout_cube);
 
         locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
