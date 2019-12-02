@@ -24,6 +24,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDzeYZvVv9DHqwdzmKFKbwO03X5xK-34UM" />
 
+        <activity android:name=".cube" />
         <activity android:name=".cafe99" />
         <activity android:name=".majorOffice" />
         <activity android:name=".MainActivity">
@@ -33,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cube" />
+
     </application>
 
 </manifest>
