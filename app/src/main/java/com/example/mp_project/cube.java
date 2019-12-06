@@ -146,7 +146,7 @@ public class cube extends AppCompatActivity implements OnMapReadyCallback, Activ
                 // 요청 결과는 onRequestPermissionResult에서 수신됩니다.
                 ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
-            }
+            }}
             LatLng E2 = new LatLng(36.364262, 127.346321);//공2 1층
             LatLng E6 = new LatLng(36.367410, 127.346141);//경상대
             LatLng E10 = new LatLng(36.369247, 127.352303);//농대1호관 1층
@@ -245,10 +245,6 @@ public class cube extends AppCompatActivity implements OnMapReadyCallback, Activ
                 }
             });
             LatLng cnu = new LatLng(36.370103, 127.346149);
-            cMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cnu, 18));
-
-        }
-
 
         cMap.getUiSettings().setMyLocationButtonEnabled(true);
         cMap.animateCamera(CameraUpdateFactory.zoomTo(15));

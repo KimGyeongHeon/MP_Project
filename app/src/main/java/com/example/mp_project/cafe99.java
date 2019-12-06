@@ -76,6 +76,8 @@ public class cafe99 extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 Intent intent=new Intent(getApplicationContext(),cafe99Info.class);
+                intent.putExtra("name",marker.getTitle());
+                intent.putExtra("snippet",marker.getSnippet());
                 startActivity(intent);
             }
         });
