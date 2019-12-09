@@ -1,3 +1,4 @@
+/*
 package com.example.mp_project;
 
 import android.content.ContentValues;
@@ -68,3 +69,4 @@ public class DbOpenHelper{
         mDB.close();
     }
 }
+*/
