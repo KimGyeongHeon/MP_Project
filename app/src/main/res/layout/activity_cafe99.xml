@@ -12,14 +12,14 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cafe99B1"
             android:text="카페 칸이에요"
             android:textSize="30dp">
 
-        </Button>
+        </TextView>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

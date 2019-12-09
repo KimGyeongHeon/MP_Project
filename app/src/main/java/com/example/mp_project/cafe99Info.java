@@ -9,78 +9,42 @@ import android.database.Cursor;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.Image;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class cafe99Info extends AppCompatActivity {
     //private DbOpenHelper mDbOpenHelper;
-    private Cursor mCursor;
     String result;
-
-    myDBHelper myHelper;
-    SQLiteDatabase sqlDB;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cafe99_info);
         TextView T1=(TextView)findViewById(R.id.title);
-
+        ImageView I1=(ImageView)findViewById(R.id.inside_map) ;
         Intent intent=getIntent();
         String get_name=intent.getStringExtra("name");
         String snippet=intent.getStringExtra("snippet");
 
-        sqlDB=myHelper.getReadableDatabase();
-        Cursor cursor;
-        cursor=sqlDB.rawQuery("select * from cafe99",null);
-        myHelper = new myDBHelper(this);
+        String[] cafe={ "언어교육원99","생활과학대학99","3학생회관99","1학생회관99, 영탑","2학생회관99","상록회관 와야","도서관99","기숙사 와야"};
+        String[] cafeInfo={ "언어교육원 1층에 있다","생활과학대학 식당 안에 있다","3학생회관 1층 테이크 아웃만 가능하다","99는 1층에 있고 야외 테라스에 있다, 영탑은 2층에 있다","2학생회관99","상록회관 와야","도서관99","기숙사 와야"};
 
-        while(cursor.moveToNext()){
-            if(cursor.getString(0).equals(get_name))
-                T1.setText(cursor.getString(0));
+
+        //String[] cafeImage={"언교원99","생과대99","삼학99","일학99","이학99","상록 와야","도서관99","기숙사 와야"};
+            for(int i=0;i<cafe.length;i++)
+            {
+                if(snippet.toString().equals(cafe[i]))
+                {
+                    T1.setText(snippet+"   "+get_name);
+                    //I1.setImageResource(Integer.parseInt(cafeImage[i].toString()));
+                }
+                else
+                    continue;
+
+            }
         }
-
-
-
-
-    }
-    /*
-        mDbOpenHelper = new DbOpenHelper(this);
-        mDbOpenHelper.open();
-        mDbOpenHelper.create();
-        mDbOpenHelper.insertColumn("도서관","N1 CAFE 99","도서관 99");
-        mDbOpenHelper.insertColumn("상록회관","N7 CAFE 99","상록회관 99");
-    */
-
-    /*
-        Cursor iCursor = mDbOpenHelper.selectColumns();
-        while(iCursor.moveToNext()){
-            String name = iCursor.getString(iCursor.getColumnIndex("name"));
-            String contact = iCursor.getString(iCursor.getColumnIndex("contact"));
-            String id = iCursor.getString(iCursor.getColumnIndex("id"));
-
-            if(get_name== name){
-                result = name+","+contact+","+id;
-                break;
-            }*/
-
-
-public class myDBHelper extends SQLiteOpenHelper {
-    public myDBHelper(Context context) {
-        super(context, "cafe99", null, 1);
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE  cafe99 ( name varchar(20),location varchar(30),photo varchar(50));");
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS cafe99");
-        onCreate(db);
-    }
-}
-
 
 }
